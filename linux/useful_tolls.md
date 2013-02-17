@@ -14,6 +14,8 @@ pv is a terminal-based tool for monitoring the progress of data through a pipeli
    * Use -p option to send POST as shown below:
 -p postfile     File containing data to POST. Remember also to set -T
       * Make EXTRA sure your post file is properly URL encoded with no extra non-printing characters or anything at the end. The most error-free way is just create it with code. I used some python to create mine:
+      
+```python
 >>>import urllib
 >>> outfile = open('post.data','w')
 >>>params=({'auth_token':'somelongstringthatendswithanequalssign='})
@@ -22,6 +24,7 @@ pv is a terminal-based tool for monitoring the progress of data through a pipeli
 >>> outfile.close()
 Example output:
 auth_token=somelongstringthatendswithanequalssign%3D 
+```
 
 ## Siege 
 
@@ -41,11 +44,13 @@ To get the json format prettified in terminal:
    * some_command_gernating_json | python -mjson.tool 
 To work on multiple remote terminals simultaneously:
    * csshX eun@tapadmainserver1:5050 eun@tapadmainserver1:5050 ... 
-Find Command:
+
+## Find Command:
 
    * find / -name foo
    * This will search the whole system for any files named foo and display their pathnames.
-Tar:
+
+## Tar:
 
    * $ tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog ==> tar
    * $ tar -zxvf prog-1-jan-2005.tar.gz ==> untar
