@@ -3,7 +3,7 @@
 ## Regular Exception Stack Overflow:
 
 + Stack overflow can happen when using regular expression with stack trace looking like:
-'''scala
+```scala
 	at java.util.regex.Pattern$Branch.match(Pattern.java:4131)
 	at java.util.regex.Pattern$GroupHead.match(Pattern.java:4185)
 	at java.util.regex.Pattern$Loop.match(Pattern.java:4312)
@@ -18,7 +18,7 @@
 	at java.util.regex.Pattern$CharProperty.match(Pattern.java:3362)
 	at java.util.regex.Pattern$Branch.match(Pattern.java:4131)
    ...
-'''
+```
 + Solution is to avoid alternations (“|”) since they are inefficient. 
 + For example:
    + “^([a-fA-F]|\d)+$” is inefficient. Instead —> “^([0-9a-fA-F])+$” 
@@ -27,9 +27,9 @@
 
 + For Basic parsers - 
    + Extend 
-      + '''scala JavaTokenParsers, RegexParsers '''
+      + ```scala JavaTokenParsers, RegexParsers ```
 + Parser class is the root of the parsers. It takes an input and produce parset results:
-  '''scala   
+  ```scala   
      def audienceTagLiteral: Parser[String] = """[0-9a-zA-Z_]\w*""".r // This takes a string of chars and numbers
 
      def audienceGroup = audienceTagLiteral ^^ {
@@ -57,13 +57,13 @@
            throw new IllegalArgumentException("Bad syntax: "+s)
        }
      }     
-   '''
+   ```
 + The double carat ^^ passes the parsed value to a function. So it is a parser combinator that changes a successful 
   result into the specified value. `p ^^ f' succeeds if `p' succeeds; it returns `f' applied to the result of `p', 
   where f a function that will be applied to this parser's result. In another words, it is a parser that has the same 
   behaviour as the current parser, but whose result is transformed by `f'.
 + The tilda ~ is used for sequencing. p1 ~ p2 means must match p1 followed by p2. The function “and” means that
-  “123 AND 987” will be parsed as '''scala And(AudienceConstraint(“123”), AudienceConstraint(“987”)) '''
+  “123 AND 987” will be parsed as ```scala And(AudienceConstraint(“123”), AudienceConstraint(“987”)) ```
 + The pipe | is used for alternation. p1 | p2 means must match either p1 or p2 with preference given to p1. The function
   term means an input will be parsed thru either audienceGroup or parens parsers with preference given to auidenceGroup 
   parser.
@@ -83,37 +83,37 @@
 
 + When attached to a field, this annotation adds a setter and a getter method following the Java Bean convention.
 + For example:
-  '''scala @BeanProperty var status = “”'''
+  ```scala @BeanProperty var status = “”```
 
    adds the following methods to the class
 
-  '''scala def setStatus(s: String) { this.status = s }
-   def getStatus: String = this.status '''
+  ```scala def setStatus(s: String) { this.status = s }
+   def getStatus: String = this.status ```
 
 ## Exception control util:
 
 + use Exception object for more expcetion controll. Exception.allCatch.opt returns an option if it works. 
   If any exception occurs, None is returned.
 
-   '''scala 
+   ```scala 
       import scala.util.control.Exception._
 
       allCatch.opt(17) => Some(17)
       allCatch.opt{ throw new Exception; 17 } => None
-   '''
+   ```
 
 ## List operations:
 
 + _diff_
    + Computes the multiset difference between this list and another sequence.
-   + '''scala 
+   + ```scala 
          scala> List(1,2,1,1,1,2,1) diff List(2)
          res13: List[Int] = List(1, 1, 1, 1, 2, 1)
-      '''
+      ```
 + tails VS tail 
    + tail => Selects all elements except the first
    + tails => Iterates over the tails of this list
-   + '''scala 
+   + ```scala 
       scala> List(1,2,3).tails
       res16: Iterator[List[Int]] = non-empty iterator
-     '''
+     ```
