@@ -109,7 +109,7 @@
    + ```scala 
          scala> List(1,2,1,1,1,2,1) diff List(2)
          res13: List[Int] = List(1, 1, 1, 1, 2, 1)
-      ```
+      ```  
 + tails VS tail 
    + tail => Selects all elements except the first
    + tails => Iterates over the tails of this list
