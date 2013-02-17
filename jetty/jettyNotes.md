@@ -82,6 +82,7 @@ Customizing your Jetty configuration:
 Jetty-logging.xml:
 + You can use etc/jetty-logging.xml to take all System.out and System.err output (from any source) and 
   route it to a rolling log file. To do so, include etc/jetty-logging.xml on Jetty startup.
+
 ```bash 
   java -jar start.jar etc/jetty-logging.xml
 ```
