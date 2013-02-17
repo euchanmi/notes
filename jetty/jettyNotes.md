@@ -1,7 +1,9 @@
 # jettyNotes
 
 ## How to start Jetty:
-+```bash java -jar start.jar ```
++```bash 
+java -jar start.jar 
+```
 etc/jetty.xml is the default configuration file for Jetty.
 
 Deploying Webapps:
@@ -45,7 +47,9 @@ Jetty command line options:
 + “jetty.host” => host for the default connector. No default value.
 + “jetty.port” => port for the default connector. Default value is 8080.
 + “jetty.logs” => directory which contains the request logs. No trailing slash. Default value is ${jetty.home}/logs
-+ ```bash java -Doption1=value -Doption2=value -jar start.jar etc/jetty.xml ```
++ ```bash 
+  java -Doption1=value -Doption2=value -jar start.jar etc/jetty.xml 
+  ```
 
 Customizing your Jetty configuration:
 + etc/jetty.xml sets reasonable defaults, but you will want to customize Jetty to fit your needs. 
@@ -71,10 +75,14 @@ Customizing your Jetty configuration:
 ```
 
 + To start jetty with a customized configration file:
-   + ```bash java -jar start.jar etc/myjetty.xml ```
+   + ```bash 
+      java -jar start.jar etc/myjetty.xml
+     ```
 
 Jetty-logging.xml:
 + You can use etc/jetty-logging.xml to take all System.out and System.err output (from any source) and 
   route it to a rolling log file. To do so, include etc/jetty-logging.xml on Jetty startup.
-+ ```bash java -jar start.jar etc/jetty-logging.xml```
++ ```bash 
+  java -jar start.jar etc/jetty-logging.xml
+  ```
 
