@@ -27,7 +27,9 @@
 
 + For Basic parsers - 
    + Extend 
-      + ```scala JavaTokenParsers, RegexParsers ```
+      ```scala
+      JavaTokenParsers, RegexParsers 
+      ```
 + Parser class is the root of the parsers. It takes an input and produce parset results:
   ```scala   
      def audienceTagLiteral: Parser[String] = """[0-9a-zA-Z_]\w*""".r // This takes a string of chars and numbers
@@ -83,12 +85,16 @@
 
 + When attached to a field, this annotation adds a setter and a getter method following the Java Bean convention.
 + For example:
-  ```scala @BeanProperty var status = “”```
+  ```scala 
+  @BeanProperty var status = “”
+  ```
 
    adds the following methods to the class
 
-  ```scala def setStatus(s: String) { this.status = s }
-   def getStatus: String = this.status ```
+  ```scala 
+  def setStatus(s: String) { this.status = s }
+  def getStatus: String = this.status 
+  ```
 
 ## Exception control util:
 
@@ -106,14 +112,14 @@
 
 + _diff_
    + Computes the multiset difference between this list and another sequence.
-   + ```scala 
+   ```scala 
          scala> List(1,2,1,1,1,2,1) diff List(2)
          res13: List[Int] = List(1, 1, 1, 1, 2, 1)
-      ```
+   ```
 + tails VS tail 
    + tail => Selects all elements except the first
    + tails => Iterates over the tails of this list
-   + ```scala 
+   ```scala 
       scala> List(1,2,3).tails
       res16: Iterator[List[Int]] = non-empty iterator
-     ```
+  ```
