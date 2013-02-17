@@ -1,21 +1,21 @@
 # Scala Underscores:
 
-1. for everything:  
+## for everything:  
 
 	import com.pacakgeA._
 
-2. Give me a variable name but I don't care what is is.
+## Give me a variable name but I don't care what is is.
 
 	var count : Int = _
 
-3. Don't import from name space  
+## Don't import from name space  
 ```scala
   import java.util.{Date => _, _}
 
   val date = new Date() // Error, Date not found
 ```
 
-4. Unused variables:
+## Unused variables:
 
 ```scala
 (1 to 5) foreach { (x:Int) => println("x is not used") }
@@ -37,7 +37,7 @@ case _ => println("…")
 }
 ```
 
-5. Anonymous Paramters
+## Anonymous Paramters
 ```scala
 	(1 to 10) map { x => x + 1 }  can be (1 to 10) map { _ + 1 }
 
@@ -50,7 +50,7 @@ case _ => println("…")
 	<console>:9: error: wrong number of parameters; expected = 1
     	          (1 to 10) map { _ / 2 + _ }
 ```
-6. existential type:
+## existential type:
 
 ```scala
 scala> def size(objs: List[T] forSome { type T }) = objs
@@ -70,16 +70,16 @@ scala> Some("Hell") match {
 option
 ```
 
-7. accessors in tuples:
+## accessors in tuples:
 ```scala 
   (1,2)._1 // => 1
 ```
 
-8. _* //varags:
+## _* //varags:
 ```scala
   scala> "One: %s, Two : %s".format(Seq(1,2):_*)
   res73: String = One: 1, Two : 2
 ```
 
-9. setter name: _=
+## setter name: _=
 
