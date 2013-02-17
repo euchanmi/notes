@@ -112,6 +112,7 @@
 
 + _diff_
    + Computes the multiset difference between this list and another sequence.
+   
    ```scala 
          scala> List(1,2,1,1,1,2,1) diff List(2)
          res13: List[Int] = List(1, 1, 1, 1, 2, 1)
@@ -119,6 +120,7 @@
 + tails VS tail 
    + tail => Selects all elements except the first
    + tails => Iterates over the tails of this list
+   
    ```scala 
       scala> List(1,2,3).tails
       res16: Iterator[List[Int]] = non-empty iterator
