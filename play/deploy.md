@@ -26,3 +26,54 @@ sbt run
 	  
 ## Specifying the HTTP server address and port
 ```start -Dhttp.port=1234 -Dhttp.address=127.0.0.1```
+
+## Specifying additional JVM arguments
+
+You can specify any JVM arguments to the start script. Otherwise the default JVM settings will be used:
+
+```start -Xms128M -Xmx512m -server```
+
+## Specifying alternative configuration file
+
+Using -Dconfig.resuorce will search for an alternative configuration file in the application classpath (you 
+usually provide these alternative configuration files into your application conf/ directory 
+before packaging).
+
+```start -Dconfig.resource=prod.conf```
+
+You can also specify another local configuration file not packaged into the application artifacts:
+
+```start -Dconfig.file=/opt/conf/prod.conf```
+
+You can also specify a configuration file to be loaded from any URL:
+
+```start -Dconfig.url=http://conf.mycompany.com/conf/prod.conf```
+
+## Overriding specific configuration keys
+
+Sometimes you don’t want to specify another complete configuration file, but just override a bunch of specific keys. You can do that by specifying then as Java System properties:
+
+```start -Dapplication.secret=verysecretkey -Ddb.default.password=toto```
+
+## Changing the logback configuration file
+
+You can also specify another logback configuration file via a System property
+
+Using -Dlogger.resource
+Specify another loback configuration file to be loaded from the classpath:
+
+```$ start -Dlogger.resource=conf/prod-logger.xml```
+
+Using -Dlogger.file
+Specify another loback configuration file to be loaded from the file system:
+
+```$ start -Dlogger.file=/opt/prod/logger.xml```
+
+Using -Dlogger.url
+Specify another loback configuration file to be loaded from an URL:
+
+```$ start -Dlogger.url=http://conf.mycompany.com/logger.xml```
+
+
+
+
