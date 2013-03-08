@@ -77,7 +77,9 @@ Specify another loback configuration file to be loaded from an URL:
 ```$ start -Dlogger.url=http://conf.mycompany.com/logger.xml```
 
 
-## The basic idea is to run two Play instances of your web application and let the front-end proxy 
+## Apache as a front proxy to allow transparent upgrade of your application
+
+The basic idea is to run two Play instances of your web application and let the front-end proxy 
 load-balance them. In case one is not available, it will forward all the requests to the available one.
 
 Let’s start the same Play application two times: one on port 9999 and one on port 9998.
